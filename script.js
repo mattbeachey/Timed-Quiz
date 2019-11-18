@@ -4,9 +4,11 @@
 
 let timer = 100
 let wronganswer = false
+let wrongansweri = false
 
-function answerWrong (){
+function answerWrong() {
     wronganswer = true;
+    wrongansweri = true;
 }
 
 function startTimer() {
@@ -14,11 +16,30 @@ function startTimer() {
     let i = 0;
 
     function myLoop() {
-        setTimeout(function () {    //ask TAs about how this "method" workd exactly - does it declare an undefined function? found this algorithm at https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
+        setTimeout(function () { 
             timer--
             i++;
+            if (wrongansweri === true) {
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                i++
+                wrongansweri = false;
+            }
             if (i < 101) {
                 myLoop();
+                console.log(i);
             }
         }, 1000)
         if (wronganswer === true) {
@@ -43,19 +64,10 @@ function startTimer() {
         let timerString = timer.toString();
         document.getElementById("timer").innerText = timerString
     }
-
     myLoop();
-
-
-
-
 }
 
-function myFunction() {
-    var num = 15;
-    var n = num.toString();
-    document.getElementById("demo").innerHTML = n;
-}
+
 
 
 
