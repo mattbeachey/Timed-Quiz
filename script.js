@@ -9,10 +9,23 @@ let endGame = false;
 function startGame() {
 
     const answerBoxEl = document.getElementById("answerbox");
+    const questionBoxEl = document.getElementById("questionbox")
 
+    //below creates the div where the answers will live
     const colEl = document.createElement("div");
     colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
     answerBoxEl.append(colEl);
+
+    //below creates the div where the question will live
+    const colElQ = document.createElement("div");
+    colElQ.setAttribute("class", "col d-flex align-items-center justify-content-center");
+    questionBoxEl.append(colElQ);
+
+    //below pulls a question from game-data.js
+    const questionEl = document.createElement("p");
+    questionEl.innerHTML = question1;
+    colElQ.append(questionEl)
+    console.log(questionEl)
 
     document.getElementById("start-button").classList.add("disappear")
 
@@ -29,6 +42,7 @@ function startGame() {
                 rightAnswer = false;
             }
             colEl.parentNode.removeChild(colEl);
+            colElQ.parentNode.removeChild(colElQ)
             secondQuestion()
             //deletes the container of the buttons when any button is clicked
             //The function question2() is called, bringing in the next round of questions to take the place of this round after they are removed.
@@ -42,6 +56,15 @@ function startGame() {
         //first, a new container element is created to house the new answer buttons
         colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
         answerBoxEl.append(colEl);
+
+        const colElQ = document.createElement("div");
+        colElQ.setAttribute("class", "col d-flex align-items-center justify-content-center");
+        questionBoxEl.append(colElQ);
+
+        const questionEl = document.createElement("p");
+        questionEl.innerHTML = question2;
+        colElQ.append(questionEl)
+        console.log(questionEl)
 
         answers2.forEach(function (question, i) {
 
@@ -163,7 +186,7 @@ function startGame() {
 
 
 //Left to do:
-//-get timer to stop when all questions have been answered - why isn't endGame boolean value working
+
 // -add question generation to each question
 // -add in actual answers to each array
 // -once time stops (at endGame) save string in timer (or value?) to local Storage

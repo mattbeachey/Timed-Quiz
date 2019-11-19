@@ -1,4 +1,4 @@
-const question1 = ""
+const question1 = "Question 1";
 let answers1 = [
     { Answer:"right answer", rightAnswer: true },
     { Answer:"wrong answer", rightAnswer: false },
@@ -16,7 +16,7 @@ for (let i = answers1.length - 1; i > 0; i--) {
 //console.log(question1)
 
 
-const question2 = ""
+const question2 = "Question 22222";
 let answers2 = [
     { Answer:"right answer", rightAnswer: true },
     { Answer:"wrong answer", rightAnswer: false },
@@ -34,7 +34,7 @@ for (let i = answers2.length - 1; i > 0; i--) {
 //console.log(question2)
 
 
-const question3 = ""
+const question3 = "";
 let answers3 = [
     { Answer:"right answer", rightAnswer: true },
     { Answer:"wrong answer", rightAnswer: false },
@@ -52,7 +52,7 @@ for (let i = answers3.length - 1; i > 0; i--) {
 //console.log(question3)
 
 
-const question4 = ""
+const question4 = "";
 let answers4 = [
     { Answer:"right answer", rightAnswer: true },
     { Answer:"wrong answer", rightAnswer: false },
@@ -70,7 +70,7 @@ for (let i = answers4.length - 1; i > 0; i--) {
 //console.log(question4)
 
 
-const question5 = ""
+const question5 = "";
 let answers5 = [
     { Answer:"right answer", rightAnswer: false },
     { Answer:"wrong answer", rightAnswer: false },
