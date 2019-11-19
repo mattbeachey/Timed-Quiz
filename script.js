@@ -76,6 +76,7 @@ function startGame() {
                 if (question.rightAnswer === false) {
                     rightAnswer = false;
                 }
+                colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
                 thirdQuestion() //calls next question
             })
@@ -89,6 +90,15 @@ function startGame() {
         colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
         answerBoxEl.append(colEl);
 
+        const colElQ = document.createElement("div");
+        colElQ.setAttribute("class", "col d-flex align-items-center justify-content-center");
+        questionBoxEl.append(colElQ);
+
+        const questionEl = document.createElement("p");
+        questionEl.innerHTML = question3;
+        colElQ.append(questionEl)
+        console.log(questionEl)
+
         answers3.forEach(function (question, i) {
 
             const answerEl = document.createElement("button");
@@ -99,6 +109,7 @@ function startGame() {
                 if (question.rightAnswer === false) {
                     rightAnswer = false;
                 }
+                colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
                 fourthQuestion()
             })
@@ -112,6 +123,15 @@ function startGame() {
         colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
         answerBoxEl.append(colEl);
 
+        const colElQ = document.createElement("div");
+        colElQ.setAttribute("class", "col d-flex align-items-center justify-content-center");
+        questionBoxEl.append(colElQ);
+
+        const questionEl = document.createElement("p");
+        questionEl.innerHTML = question4;
+        colElQ.append(questionEl)
+        console.log(questionEl)
+
         answers4.forEach(function (question, i) {
 
             const answerEl = document.createElement("button");
@@ -122,6 +142,7 @@ function startGame() {
                 if (question.rightAnswer === false) {
                     rightAnswer = false;
                 }
+                colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
                 fifthQuestion()
             })
@@ -135,6 +156,15 @@ function startGame() {
         colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
         answerBoxEl.append(colEl);
 
+        const colElQ = document.createElement("div");
+        colElQ.setAttribute("class", "col d-flex align-items-center justify-content-center");
+        questionBoxEl.append(colElQ);
+
+        const questionEl = document.createElement("p");
+        questionEl.innerHTML = question5;
+        colElQ.append(questionEl)
+        console.log(questionEl)
+
         answers5.forEach(function (question, i) {
 
             const answerEl = document.createElement("button");
@@ -145,6 +175,7 @@ function startGame() {
                 if (question.rightAnswer === false) {
                     rightAnswer = false;
                 }
+                colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
                 endGame = true;
                 console.log(endGame)
