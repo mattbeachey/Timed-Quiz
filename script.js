@@ -3,12 +3,12 @@
 
 
 let timer = 100
-let wronganswer = false
-let wrongansweri = false
+let wrongAnswer = false
+let wrongAnsweri = false
 
 function answerWrong() {
-    wronganswer = true;
-    wrongansweri = true;
+    wrongAnswer = true;
+    wrongAnsweri = true;
 }
 
 function startGame() {
@@ -21,32 +21,18 @@ function startGame() {
         setTimeout(function () { 
             timer--
             i++;
-            if (wrongansweri === true) {
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                i++
-                wrongansweri = false;
+            if (wrongAnsweri === true) {
+                i = i + 15
+                wrongAnsweri = false;
             }
             if (i < 101) {
                 myLoop();
                 console.log(i);
             }
         }, 1000)
-        if (wronganswer === true) {
+        if (wrongAnswer === true) {
             timer = timer - 15
-            wronganswer = false;
+            wrongAnswer = false;
         }
         console.log(timer);
         let timerString = timer.toString();
