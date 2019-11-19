@@ -15,30 +15,36 @@ function startGame() {
 
     document.getElementById("start-button").classList.add("disappear")
 
-    let i = 0;
+    questions1.forEach(function () {
+        const buttonEl = document.createElement("button");
+        buttonEl.innerHTML = "click bait";
+        buttonEl.setAttribute("class", "btn btn-primary btn-lg");
+        document.body.append(buttonEl);
+    });
 
-    function myLoop() {
-        setTimeout(function () { 
-            timer--
-            i++;
-            if (wrongAnsweri === true) {
-                i = i + 15
-                wrongAnsweri = false;
-            }
-            if (i < 101) {
-                myLoop();
-                console.log(i);
-            }
-        }, 1000)
-        if (wrongAnswer === true) {
-            timer = timer - 15
-            wrongAnswer = false;
+let i = 0;
+function myLoop() {
+    setTimeout(function () {
+        timer--
+        i++;
+        if (wrongAnsweri === true) {
+            i = i + 15
+            wrongAnsweri = false;
         }
-        console.log(timer);
-        let timerString = timer.toString();
-        document.getElementById("timer").innerText = timerString
+        if (i < 101) {
+            myLoop();
+            console.log(i);
+        }
+    }, 1000)
+    if (wrongAnswer === true) {
+        timer = timer - 15
+        wrongAnswer = false;
     }
-    myLoop();
+    console.log(timer);
+    let timerString = timer.toString();
+    document.getElementById("timer").innerText = timerString
+}
+myLoop();
 }
 
 
