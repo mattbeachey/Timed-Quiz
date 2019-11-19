@@ -2,13 +2,13 @@
 
 
 
-let timer = 100
-let wrongAnswer = false
-let wrongAnsweri = false
+let timer = 75
+let rightAnswer = true
+let rightAnsweri = true
 
 function answerWrong() {
-    wrongAnswer = true;
-    wrongAnsweri = true;
+    rightAnswer = false;
+    rightAnsweri = false;
 }
 
 function startGame() {
@@ -21,35 +21,32 @@ function startGame() {
         answerEl.innerHTML = question.Answer; // this asigns each question to each button
         answerEl.setAttribute("class", "button");
         document.body.append(answerEl); //determine button's final destination on the page here
-        answerEl.addEventListener("click", function(){
+        answerEl.addEventListener("click", function () {
             if (question.rightAnswer === true) {
                 console.log("Correct Answer")
             }
             if (question.rightAnswer === false) {
                 console.log("Wrong Answer")
+                rightAnswer = false;
             }
         })
     });
 
-    let i = 0;
     function myLoop() {
         setTimeout(function () {
             timer--
-            i++;
-            if (wrongAnsweri === true) {
-                i = i + 15
-                wrongAnsweri = false;
-            }
-            if (i < 101) {
+            if (timer > -1) {
                 myLoop();
-                // console.log(i);
             }
         }, 1000)
-        if (wrongAnswer === true) {
+        if (rightAnswer === false && timer >= 15) {
             timer = timer - 15
-            wrongAnswer = false;
+            rightAnswer = true;
         }
-        // console.log(timer);
+        if (timer < 16 && rightAnswer === false) {
+            timer = 0
+        }
+
         let timerString = timer.toString();
         document.getElementById("timer").innerText = timerString
     }
