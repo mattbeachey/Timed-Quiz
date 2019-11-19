@@ -5,7 +5,6 @@
 let timer = 75
 let rightAnswer = true
 let endGame = false;
-console.log(endGame)
 
 function startGame() {
 
@@ -17,8 +16,9 @@ function startGame() {
 
     document.getElementById("start-button").classList.add("disappear")
 
-    question1.forEach(function (question, i) {  //This foreach function is generating an answer based off of the array "Question1", creating a button for each array item
-        console.log(question)                   //in the above, are we creating "question?" It hasn't existed before, in now means a single part of the array
+    answers1.forEach(function (question, i) {
+        //This foreach function is generating an answer based off of the array "Question1", creating a button for each array item
+        //in the above, are we creating "question?" It hasn't existed before, in now means a single part of the array
 
         const answerEl = document.createElement("button");
         answerEl.innerHTML = question.Answer; // this asigns each question to each button
@@ -26,24 +26,24 @@ function startGame() {
         colEl.append(answerEl); //determine button's final destination on the page here
         answerEl.addEventListener("click", function () {
             if (question.rightAnswer === false) {
-                console.log("Wrong Answer")
                 rightAnswer = false;
             }
-            colEl.parentNode.removeChild(colEl); //deletes the container of the buttons when any button is clicked
-            secondQuestion() //The function question2() is called, bringing in the next round of questions to take the place of this round after they are removed.
+            colEl.parentNode.removeChild(colEl);
+            secondQuestion()
+            //deletes the container of the buttons when any button is clicked
+            //The function question2() is called, bringing in the next round of questions to take the place of this round after they are removed.
         })
     });
 
-    function secondQuestion() {                //this gets triggered by the user clicking a button in the previous round of questions
+    function secondQuestion() {
+        //this gets triggered by the user clicking a button in the previous round of questions
 
-        const colEl = document.createElement("div");   //first, a new container element is created to house the new answer buttons
+        const colEl = document.createElement("div");
+        //first, a new container element is created to house the new answer buttons
         colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
         answerBoxEl.append(colEl);
-        console.log(colEl)
-        console.log(question2)
 
-        question2.forEach(function (question, i) {
-            console.log(question)
+        answers2.forEach(function (question, i) {
 
             const answerEl = document.createElement("button");
             answerEl.innerHTML = question.Answer;
@@ -51,7 +51,6 @@ function startGame() {
             colEl.append(answerEl);
             answerEl.addEventListener("click", function () {
                 if (question.rightAnswer === false) {
-                    console.log("Wrong Answer")
                     rightAnswer = false;
                 }
                 colEl.parentNode.removeChild(colEl);
@@ -66,11 +65,8 @@ function startGame() {
         const colEl = document.createElement("div");
         colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
         answerBoxEl.append(colEl);
-        console.log(colEl)
-        console.log(question2)
 
-        question3.forEach(function (question, i) {
-            console.log(question)
+        answers3.forEach(function (question, i) {
 
             const answerEl = document.createElement("button");
             answerEl.innerHTML = question.Answer;
@@ -78,7 +74,6 @@ function startGame() {
             colEl.append(answerEl);
             answerEl.addEventListener("click", function () {
                 if (question.rightAnswer === false) {
-                    console.log("Wrong Answer")
                     rightAnswer = false;
                 }
                 colEl.parentNode.removeChild(colEl);
@@ -93,11 +88,8 @@ function startGame() {
         const colEl = document.createElement("div");
         colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
         answerBoxEl.append(colEl);
-        console.log(colEl)
-        console.log(question2)
 
-        question4.forEach(function (question, i) {
-            console.log(question)
+        answers4.forEach(function (question, i) {
 
             const answerEl = document.createElement("button");
             answerEl.innerHTML = question.Answer;
@@ -105,7 +97,6 @@ function startGame() {
             colEl.append(answerEl);
             answerEl.addEventListener("click", function () {
                 if (question.rightAnswer === false) {
-                    console.log("Wrong Answer")
                     rightAnswer = false;
                 }
                 colEl.parentNode.removeChild(colEl);
@@ -120,11 +111,8 @@ function startGame() {
         const colEl = document.createElement("div");
         colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
         answerBoxEl.append(colEl);
-        console.log(colEl)
-        console.log(question2)
 
-        question5.forEach(function (question, i) {
-            console.log(question)
+        answers5.forEach(function (question, i) {
 
             const answerEl = document.createElement("button");
             answerEl.innerHTML = question.Answer;
@@ -132,11 +120,10 @@ function startGame() {
             colEl.append(answerEl);
             answerEl.addEventListener("click", function () {
                 if (question.rightAnswer === false) {
-                    console.log("Wrong Answer")
                     rightAnswer = false;
                 }
                 colEl.parentNode.removeChild(colEl);
-                let endGame = true;
+                endGame = true;
                 console.log(endGame)
             })
         });
@@ -175,5 +162,13 @@ function startGame() {
 
 
 
-
+//Left to do:
+//-get timer to stop when all questions have been answered - why isn't endGame boolean value working
+// -add question generation to each question
+// -add in actual answers to each array
+// -once time stops (at endGame) save string in timer (or value?) to local Storage
+// -push from local storage to high scores (will have to check on how to store multiple)
+// -at endGame, create prompt to get user to enter initials, store with their scores
+// -display all scores
+// -style entire thing
 
