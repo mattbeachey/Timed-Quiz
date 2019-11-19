@@ -11,7 +11,9 @@ function answerWrong() {
     wrongansweri = true;
 }
 
-function startTimer() {
+function startGame() {
+
+    document.getElementById("start-button").classList.add("disappear")
 
     let i = 0;
 
@@ -43,21 +45,7 @@ function startTimer() {
             }
         }, 1000)
         if (wronganswer === true) {
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
-            timer--
+            timer = timer - 15
             wronganswer = false;
         }
         console.log(timer);
