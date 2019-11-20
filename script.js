@@ -236,9 +236,18 @@ function startGame() {
                 array = []
             } 
             array.push(nameAndScore)
-            array = JSON.stringify(array)
-            localStorage.setItem("score", array)
+            array.sort(function(a, b){
+                return b.score - a.score;
+            });
+            let stringarray = JSON.stringify(array)
+            localStorage.setItem("score", stringarray)
             console.log(array)
+            array.forEach(function(data){
+                let p = document.createElement("p")
+                p.innerText = data.name + data.score
+                document.body.append(p)
+            })
+            
         }
     }
     timerLoop();
