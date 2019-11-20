@@ -1,7 +1,157 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: rgb(52,130,151);
+}
+
+hr {
+    border: 2px solid #ecf1eb;
+}
+
+.bodygradient {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;    
+    background: #3e8ca2;
+    background: linear-gradient(180deg, rgba(52,130,151,1) 0%, rgba(115,168,180,1) 80%, rgba(236,241,235,1) 100%);
+    transition: all 1s;
+}
+
+.mainbody {
+    /* display: flex;
+    justify-content: center; */
+}
+
+.introbox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    color: #ecf1eb;
+    font-family: Calistoga;
+    font-size: 80px;
+}
+
+h2 {
+    color: #ecf1eb;
+    font-family: Calistoga;
+    font-size: 50px;
+    margin-bottom: 25px;
+
+}
+
+h2:hover, a:hover {
+    color: #ecf1eb
+}
+
+h3 {
+    color: #ecf1eb;
+    font-family: Calistoga;
+    font-size: 35px;
+}
+
+h4 {
+    font-family: 'Tomorrow', sans-serif;
+    color: #ecf1eb;
+    font-size: 20px;
+    
+}
+
+.rules {
+    border-radius: 16px;
+    width: 70%;
+    background-color: #348297;
+    color: #ecf1eb;
+    font-size: 20px;
+    font-family: 'Tomorrow', sans-serif;
+    padding: 20px;
+    margin: auto;
+}
+
+.rules:hover {
+    background-color: #3e8ca2;
+    color: #ffffff;
+    transition: all 0.5s;
+}
+
+::selection {
+    background: #eba5a5;; /* WebKit/Blink Browsers */
+  }
+
 .disappear {
     display: none;
 }
 
-div {
+.buttoncont {
+    display: flex;
+    justify-content: center;
+}
+
+/* div {
     border: 2px solid hotpink;
+} */
+
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    color: #ecf1eb;    
+    font-family: 'Tomorrow', sans-serif;
+}
+
+button{
+    background-color: #3e8ca2;
+    border: 2px solid #ecf1eb;
+    color: #ecf1eb;
+    border-radius: 10px;
+    font-family: 'Tomorrow', sans-serif;
+}
+
+.answerbutton {
+    margin: 0px 20px 0px 20px
+}
+
+.answerbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.startbutton {
+    width: 70%;
+    background-color: #3e8ca2;
+    border: 2px solid #ecf1eb;
+    color: #ecf1eb;
+    margin: 2% 5% 0 5%;
+    padding: 0;
+    border-radius: 10px;
+    height: 60px;
+    width: 400px;
+    font-family: Calistoga;
+    font-size: 40px;
+}
+
+.startbutton:hover {
+    background-color: #ecf1eb;
+    color: #3e8ca2;
+    transition: all 0.5s;
+}
+
+.spacer {
+    height: 60px;
+    font-family: Calistoga;
+    color: #ecf1eb;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }

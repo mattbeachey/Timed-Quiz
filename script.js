@@ -7,6 +7,13 @@ let rightAnswer = true
 let rightAnswerBonus = false
 let score = 0
 let endGame = false;
+const leaderboardEl = document.getElementById("leaderboard");
+
+function noScroll() {
+    window.scrollTo(0, 0);
+}
+
+window.addEventListener('scroll', noScroll);
 
 function startGame() {
     //All code below until function secondQuestion() is repeated in each question function. 
@@ -31,6 +38,8 @@ function startGame() {
 
     document.getElementById("start-button").classList.add("disappear")//start button disappears after being clicked
     document.getElementById("timer").classList.remove("disappear")//Live timer appears
+    document.getElementById("currentScore").classList.remove("disappear")
+    document.getElementById("introbox").classList.add("disappear")
 
     answers1.forEach(function (question, i) {
         //This foreach function is generating an answer based off of the array "Question1", creating a button for each array item
@@ -186,7 +195,7 @@ function startGame() {
                 }
                 setTimeout(function () {
                     endGame = true;
-                }, 100)//had to add this delay to ensure that timer endgame operations performed in correct order
+                }, 100) //had to add this delay to ensure that timer endgame operations performed in correct order
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
 
@@ -227,7 +236,7 @@ function startGame() {
             let scoreString = score.toString();
             document.getElementById("currentScore").innerText = "Final Score:" + scoreString
             const finalTime = timer
-            let name = prompt("Please enter your intials")  //user is prompted to add their name
+            let name = prompt("Please enter your name")  //user is prompted to add their name
             let nameAndScore = { name: name, score: score } //a new array is created with two properties (name and score) for each item
             let currentData = localStorage.getItem("score") //if there is existing local data saved, it is saved into the array "currentData"
             let array = JSON.parse(currentData) //the text of the current data is converted into a JS object
@@ -243,8 +252,11 @@ function startGame() {
             array.forEach(function (data) { //each item of the array is send to the DOM to create a high scores list on the page
                 let nameAndScoreEl = document.createElement("p")
                 nameAndScoreEl.innerText = " " + data.name + " " + data.score
-                document.body.append(nameAndScoreEl)
+                leaderboardEl.append(nameAndScoreEl)
             })
+            document.body.classList.add("bodygradient")
+            document.getElementById("timer").classList.add("disappear")
+            document.getElementById("topScores").classList.remove("disappear")
 
         }
     }
