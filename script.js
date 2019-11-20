@@ -9,7 +9,8 @@ let score = 0
 let endGame = false;
 
 function startGame() {
-
+    //All code below until function secondQuestion() is repeated in each question function. 
+    //This code is not in its own function, as it just runs when start game runs, and does not need to be triggered in a discrete function.
     const answerBoxEl = document.getElementById("answerbox");
     const questionBoxEl = document.getElementById("questionbox")
 
@@ -187,7 +188,7 @@ function startGame() {
                 }, 1000)
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
-                
+
             })
         });
 
@@ -210,7 +211,12 @@ function startGame() {
                 timer = 0
             }
             if (rightAnswerBonus === true) {
-                score = score + timer
+                score = score + timer //score is added by adding time remaining when answer correct
+                let scoreString = score.toString();
+                document.getElementById("currentScore").innerText = scoreString
+                // let currentScoreEl = document.createElement("p")
+                // currentScoreEl.innerText = score
+                // document.body.append(currentScoreEl)
                 rightAnswerBonus = false
             }
 
@@ -219,24 +225,24 @@ function startGame() {
         } else { //everything below happens once the game has ended
             const finalTime = timer
             let name = prompt("Please enter your intials")  //user is prompted to add their name
-            let nameAndScore = {name: name, score: score} //a new array is created with two properties (name and score) for each item
+            let nameAndScore = { name: name, score: score } //a new array is created with two properties (name and score) for each item
             let currentData = localStorage.getItem("score") //if there is existing local data saved, it is saved into the array "currentData"
             let array = JSON.parse(currentData) //the text of the current data is converted into a JS object
             if (currentData == null) { //if there is no local data saved, the array is made to be a blank array
                 array = []
-            } 
+            }
             array.push(nameAndScore) //the current name and score are added to the array that was populated by pulling from the local data
-            array.sort(function(a, b){ //the array is sorted by score
+            array.sort(function (a, b) { //the array is sorted by score
                 return b.score - a.score;
             });
             let stringarray = JSON.stringify(array) //the array is converted into a string
             localStorage.setItem("score", stringarray) //the appended array is pushed back into local storage
-            array.forEach(function(data){ //each item of the array is send to the DOM to create a high scores list on the page
-                let p = document.createElement("p")
-                p.innerText = data.name + data.score
-                document.body.append(p)
+            array.forEach(function (data) { //each item of the array is send to the DOM to create a high scores list on the page
+                let nameAndScoreEl = document.createElement("p")
+                nameAndScoreEl.innerText = " " + data.name + " " + data.score
+                document.body.append(nameAndScoreEl)
             })
-            
+
         }
     }
     timerLoop();
@@ -248,7 +254,7 @@ function startGame() {
 
 
 
-// -add Paul's high score idea?
+// -add another condition for endGame - time runs out
 // -once time stops (at endGame) save string in timer (or value?) to local Storage
 // -push from local storage to high scores (will have to check on how to store multiple)
 // -at endGame, create prompt to get user to enter initials, store with their scores
@@ -256,3 +262,9 @@ function startGame() {
 // -style entire thing
 // -add in actual answers to each array
 
+
+//Rules:
+
+//Answer the following questions as quickly as you can. You have 75 seconds to answer them all. If you get a wrong answer,
+//15 seconds will be subtracted from the clock. If you get a correct answer, you will be awarded one point for every second 
+//you have remaining on the clock at the instant you correctly answered the question. 
