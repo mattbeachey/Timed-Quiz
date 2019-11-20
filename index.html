@@ -12,11 +12,8 @@
 </head>
 
 <body>
-    <div>Time: </div>
     <button id="start-button" onclick="startGame()">Start Game</button>
-    <p>Time:</p>
-    <p id="timer">0</p>
-    <p>Seconds</p>
+    <p id="timer" class="disappear">Time Remaining</p>
     <div id="questionbox">
         <!-- Question will generate here -->
     </div>
@@ -24,10 +21,10 @@
         <!-- answer buttons will generate here -->
     </div>
     <div>
-        <p id="currentScore"></p>
+        <p id="currentScore">Current Score: 0</p>
     </div>
     <div>
-        <a href="./index.html">Play again?</a>
+        <a id="playAgain" class="disappear" href="./index.html">Play again?</a>
     </div>
 
     <script src="./game-data.js"></script>

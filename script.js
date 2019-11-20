@@ -29,7 +29,8 @@ function startGame() {
     questionEl.innerHTML = question1;
     colElQ.append(questionEl)
 
-    document.getElementById("start-button").classList.add("disappear")
+    document.getElementById("start-button").classList.add("disappear")//start button disappears after being clicked
+    document.getElementById("timer").classList.remove("disappear")//Live timer appears
 
     answers1.forEach(function (question, i) {
         //This foreach function is generating an answer based off of the array "Question1", creating a button for each array item
@@ -185,7 +186,7 @@ function startGame() {
                 }
                 setTimeout(function () {
                     endGame = true;
-                }, 1000)
+                }, 100)//had to add this delay to ensure that timer endgame operations performed in correct order
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
 
@@ -213,13 +214,18 @@ function startGame() {
             if (rightAnswerBonus === true) {
                 score = score + timer //score is added by adding time remaining when answer correct
                 let scoreString = score.toString();
-                document.getElementById("currentScore").innerText = scoreString //current score is updated to the page live
+                document.getElementById("currentScore").innerText = "Current Score:" + scoreString //current score is updated to the page live
                 rightAnswerBonus = false
             }
 
             let timerString = timer.toString();
-            document.getElementById("timer").innerText = timerString
+            document.getElementById("timer").innerText = "Time Remaining:" + timerString
+            //time remaining is updated live to the page
+
         } else { //everything below happens once the game has ended
+            document.getElementById("playAgain").classList.remove("disappear")//"Play Again?" button appears
+            let scoreString = score.toString();
+            document.getElementById("currentScore").innerText = "Final Score:" + scoreString
             const finalTime = timer
             let name = prompt("Please enter your intials")  //user is prompted to add their name
             let nameAndScore = { name: name, score: score } //a new array is created with two properties (name and score) for each item
@@ -248,11 +254,6 @@ function startGame() {
 
 
 //Left to do:
-
-
-
-// -add another condition for endGame - time runs out
-
 // -style entire thing
 // -add in actual answers to each array
 
@@ -262,7 +263,8 @@ function startGame() {
 
 //Answer the following questions as quickly as you can. You have 75 seconds to answer them all. If you get a wrong answer,
 //15 seconds will be subtracted from the clock. If you get a correct answer, you will be awarded one point for every second 
-//you have remaining on the clock at the instant you correctly answered the question. 
+//you have remaining on the clock at the instant you correctly answered the question. So the more quickly you correctly answer
+//a question, the more points you get.
 
 //After you have answered all five questions, or the time runs out, the game ends. Your total score is added to the leader board
 //along with your initials. 
