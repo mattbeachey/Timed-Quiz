@@ -4,6 +4,8 @@
 
 let timer = 75
 let rightAnswer = true
+let rightAnswerBonus = false
+let score = 0
 let endGame = false;
 
 function startGame() {
@@ -25,7 +27,6 @@ function startGame() {
     const questionEl = document.createElement("p");
     questionEl.innerHTML = question1;
     colElQ.append(questionEl)
-    console.log(questionEl)
 
     document.getElementById("start-button").classList.add("disappear")
 
@@ -40,6 +41,9 @@ function startGame() {
         answerEl.addEventListener("click", function () {
             if (question.rightAnswer === false) {
                 rightAnswer = false;
+            } else {
+                rightAnswerBonus = true
+                console.log(rightAnswerBonus)
             }
             colEl.parentNode.removeChild(colEl);
             colElQ.parentNode.removeChild(colElQ)
@@ -64,7 +68,6 @@ function startGame() {
         const questionEl = document.createElement("p");
         questionEl.innerHTML = question2;
         colElQ.append(questionEl)
-        console.log(questionEl)
 
         answers2.forEach(function (question, i) {
 
@@ -75,6 +78,9 @@ function startGame() {
             answerEl.addEventListener("click", function () {
                 if (question.rightAnswer === false) {
                     rightAnswer = false;
+                } else {
+                    rightAnswerBonus = true
+                    console.log(rightAnswerBonus)
                 }
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
@@ -97,7 +103,6 @@ function startGame() {
         const questionEl = document.createElement("p");
         questionEl.innerHTML = question3;
         colElQ.append(questionEl)
-        console.log(questionEl)
 
         answers3.forEach(function (question, i) {
 
@@ -108,6 +113,9 @@ function startGame() {
             answerEl.addEventListener("click", function () {
                 if (question.rightAnswer === false) {
                     rightAnswer = false;
+                } else {
+                    rightAnswerBonus = true
+                    console.log(rightAnswerBonus)
                 }
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
@@ -130,7 +138,6 @@ function startGame() {
         const questionEl = document.createElement("p");
         questionEl.innerHTML = question4;
         colElQ.append(questionEl)
-        console.log(questionEl)
 
         answers4.forEach(function (question, i) {
 
@@ -141,6 +148,9 @@ function startGame() {
             answerEl.addEventListener("click", function () {
                 if (question.rightAnswer === false) {
                     rightAnswer = false;
+                } else {
+                    rightAnswerBonus = true
+                    console.log(rightAnswerBonus)
                 }
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
@@ -163,7 +173,6 @@ function startGame() {
         const questionEl = document.createElement("p");
         questionEl.innerHTML = question5;
         colElQ.append(questionEl)
-        console.log(questionEl)
 
         answers5.forEach(function (question, i) {
 
@@ -174,41 +183,60 @@ function startGame() {
             answerEl.addEventListener("click", function () {
                 if (question.rightAnswer === false) {
                     rightAnswer = false;
+                } else {
+                    rightAnswerBonus = true
+                    console.log(rightAnswerBonus)
                 }
+                setTimeout(function () {
+                    endGame = true;
+                }, 1000)
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
-                endGame = true;
-                console.log(endGame)
+                
             })
         });
 
     }
 
 
-
-    console.log(endGame)
     function timerLoop() {
         if (endGame === false) {
             setTimeout(function () {
-                if (endGame === false) {
-                    timer--
-                }
+                timer--
                 if (timer > -1) {
                     timerLoop();
                 }
             }, 1000)
-            if (rightAnswer === false && timer >= 15 && endGame === false) {
+            if (rightAnswer === false && timer >= 15) {
                 timer = timer - 15
                 rightAnswer = true;
             }
-            if (timer < 16 && rightAnswer === false && endGame === false) {
+            if (timer < 16 && rightAnswer === false) {
                 timer = 0
+            }
+            console.log(rightAnswerBonus)
+            if (rightAnswerBonus === true) {
+                console.log("right answer")
+                score = score + timer
+                console.log(score)
+                rightAnswerBonus = false
             }
 
             let timerString = timer.toString();
             document.getElementById("timer").innerText = timerString
         } else {
-
+            console.log(endGame)
+            const finalTime = timer
+            console.log(finalTime)
+            let currentData = localStorage.getItem("score")
+            let array = JSON.parse(currentData)
+            if (currentData == null) {
+                array = []
+            } 
+            array.push(score)
+            array = JSON.stringify(array)
+            localStorage.setItem("score", array)
+            console.log(array)
         }
     }
     timerLoop();
@@ -218,11 +246,13 @@ function startGame() {
 
 //Left to do:
 
-// -add question generation to each question
-// -add in actual answers to each array
+
+
+// -add Paul's high score idea?
 // -once time stops (at endGame) save string in timer (or value?) to local Storage
 // -push from local storage to high scores (will have to check on how to store multiple)
 // -at endGame, create prompt to get user to enter initials, store with their scores
 // -display all scores
 // -style entire thing
+// -add in actual answers to each array
 

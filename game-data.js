@@ -72,7 +72,7 @@ for (let i = answers4.length - 1; i > 0; i--) {
 
 const question5 = "Question 5";
 let answers5 = [
-    { Answer:"right answer", rightAnswer: false },
+    { Answer:"right answer", rightAnswer: true },
     { Answer:"wrong answer", rightAnswer: false },
     { Answer:"wrong answer", rightAnswer: false },
     { Answer:"wrong answer", rightAnswer: false }
