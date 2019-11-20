@@ -43,7 +43,6 @@ function startGame() {
                 rightAnswer = false;
             } else {
                 rightAnswerBonus = true
-                console.log(rightAnswerBonus)
             }
             colEl.parentNode.removeChild(colEl);
             colElQ.parentNode.removeChild(colElQ)
@@ -80,7 +79,6 @@ function startGame() {
                     rightAnswer = false;
                 } else {
                     rightAnswerBonus = true
-                    console.log(rightAnswerBonus)
                 }
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
@@ -115,7 +113,6 @@ function startGame() {
                     rightAnswer = false;
                 } else {
                     rightAnswerBonus = true
-                    console.log(rightAnswerBonus)
                 }
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
@@ -150,7 +147,6 @@ function startGame() {
                     rightAnswer = false;
                 } else {
                     rightAnswerBonus = true
-                    console.log(rightAnswerBonus)
                 }
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
@@ -185,7 +181,6 @@ function startGame() {
                     rightAnswer = false;
                 } else {
                     rightAnswerBonus = true
-                    console.log(rightAnswerBonus)
                 }
                 setTimeout(function () {
                     endGame = true;
@@ -214,35 +209,29 @@ function startGame() {
             if (timer < 16 && rightAnswer === false) {
                 timer = 0
             }
-            console.log(rightAnswerBonus)
             if (rightAnswerBonus === true) {
-                console.log("right answer")
                 score = score + timer
-                console.log(score)
                 rightAnswerBonus = false
             }
 
             let timerString = timer.toString();
             document.getElementById("timer").innerText = timerString
-        } else {
-            console.log(endGame)
+        } else { //everything below happens once the game has ended
             const finalTime = timer
-            console.log(finalTime)
-            let name = prompt("Please enter your intials")
-            let nameAndScore = {name: name, score: score}
-            let currentData = localStorage.getItem("score")
-            let array = JSON.parse(currentData)
-            if (currentData == null) {
+            let name = prompt("Please enter your intials")  //user is prompted to add their name
+            let nameAndScore = {name: name, score: score} //a new array is created with two properties (name and score) for each item
+            let currentData = localStorage.getItem("score") //if there is existing local data saved, it is saved into the array "currentData"
+            let array = JSON.parse(currentData) //the text of the current data is converted into a JS object
+            if (currentData == null) { //if there is no local data saved, the array is made to be a blank array
                 array = []
             } 
-            array.push(nameAndScore)
-            array.sort(function(a, b){
+            array.push(nameAndScore) //the current name and score are added to the array that was populated by pulling from the local data
+            array.sort(function(a, b){ //the array is sorted by score
                 return b.score - a.score;
             });
-            let stringarray = JSON.stringify(array)
-            localStorage.setItem("score", stringarray)
-            console.log(array)
-            array.forEach(function(data){
+            let stringarray = JSON.stringify(array) //the array is converted into a string
+            localStorage.setItem("score", stringarray) //the appended array is pushed back into local storage
+            array.forEach(function(data){ //each item of the array is send to the DOM to create a high scores list on the page
                 let p = document.createElement("p")
                 p.innerText = data.name + data.score
                 document.body.append(p)
