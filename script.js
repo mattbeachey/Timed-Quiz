@@ -9,11 +9,11 @@ let score = 0
 let endGame = false;
 const leaderboardEl = document.getElementById("leaderboard");
 
-function noScroll() {
-    window.scrollTo(0, 0);
-}
+// function noScroll() {
+//     window.scrollTo(0, 0);
+// }
 
-window.addEventListener('scroll', noScroll);
+// window.addEventListener('scroll', noScroll);
 
 function startGame() {
     //All code below until function secondQuestion() is repeated in each question function. 
@@ -23,7 +23,7 @@ function startGame() {
 
     //below creates the div where the answers will live
     const colEl = document.createElement("div");
-    colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
+    colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
     answerBoxEl.append(colEl);
 
     //below creates the div where the question will live
@@ -40,6 +40,7 @@ function startGame() {
     document.getElementById("timer").classList.remove("disappear")//Live timer appears
     document.getElementById("currentScore").classList.remove("disappear")
     document.getElementById("introbox").classList.add("disappear")
+    document.getElementById("line").classList.add("disappear")
 
     answers1.forEach(function (question, i) {
         //This foreach function is generating an answer based off of the array "Question1", creating a button for each array item
@@ -68,7 +69,7 @@ function startGame() {
 
         const colEl = document.createElement("div");
         //first, a new container element is created to house the new answer buttons
-        colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
+        colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
         answerBoxEl.append(colEl);
 
         const colElQ = document.createElement("div");
@@ -102,7 +103,7 @@ function startGame() {
     function thirdQuestion() {
 
         const colEl = document.createElement("div");
-        colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
+        colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
         answerBoxEl.append(colEl);
 
         const colElQ = document.createElement("div");
@@ -136,7 +137,7 @@ function startGame() {
     function fourthQuestion() {
 
         const colEl = document.createElement("div");
-        colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
+        colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
         answerBoxEl.append(colEl);
 
         const colElQ = document.createElement("div");
@@ -170,7 +171,7 @@ function startGame() {
     function fifthQuestion() {
 
         const colEl = document.createElement("div");
-        colEl.setAttribute("class", "col d-flex align-items-center justify-content-center");
+        colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
         answerBoxEl.append(colEl);
 
         const colElQ = document.createElement("div");

@@ -1,9 +1,9 @@
-const question1 = "Question 1";
+const question1 = "How many yards are in a foot?";
 let answers1 = [
-    { Answer:"right answer", rightAnswer: true },
-    { Answer:"wrong answer", rightAnswer: false },
-    { Answer:"wrong answer", rightAnswer: false },
-    { Answer:"wrong answer", rightAnswer: false }
+    { Answer:"1/3", rightAnswer: true },
+    { Answer:"3/4", rightAnswer: false },
+    { Answer:"4/3", rightAnswer: false },
+    { Answer:"42", rightAnswer: false }
 ];
 
 for (let i = answers1.length - 1; i > 0; i--) {
@@ -16,12 +16,12 @@ for (let i = answers1.length - 1; i > 0; i--) {
 //console.log(question1)
 
 
-const question2 = "Question 2";
+const question2 = "How far is it roughly to the moon?";
 let answers2 = [
-    { Answer:"right answer", rightAnswer: true },
-    { Answer:"wrong answer", rightAnswer: false },
-    { Answer:"wrong answer", rightAnswer: false },
-    { Answer:"wrong answer", rightAnswer: false }
+    { Answer:"200,000 miles", rightAnswer: true },
+    { Answer:"2,000 miles", rightAnswer: false },
+    { Answer:"80 meters", rightAnswer: false },
+    { Answer:"1/3 yard", rightAnswer: false }
 ];
 
 for (let i = answers2.length - 1; i > 0; i--) {
@@ -34,12 +34,12 @@ for (let i = answers2.length - 1; i > 0; i--) {
 //console.log(question2)
 
 
-const question3 = "Question 3";
+const question3 = "Where is corn grown?";
 let answers3 = [
-    { Answer:"right answer", rightAnswer: true },
-    { Answer:"wrong answer", rightAnswer: false },
-    { Answer:"wrong answer", rightAnswer: false },
-    { Answer:"wrong answer", rightAnswer: false }
+    { Answer:"Iowa", rightAnswer: true },
+    { Answer:"Antarctica", rightAnswer: false },
+    { Answer:"The Moon", rightAnswer: false },
+    { Answer:"On More Corn", rightAnswer: false }
 ];
 
 for (let i = answers3.length - 1; i > 0; i--) {
@@ -52,12 +52,12 @@ for (let i = answers3.length - 1; i > 0; i--) {
 //console.log(question3)
 
 
-const question4 = "Question 4";
+const question4 = "North Dakota is mostly in which standard timezone?";
 let answers4 = [
-    { Answer:"right answer", rightAnswer: true },
-    { Answer:"wrong answer", rightAnswer: false },
-    { Answer:"wrong answer", rightAnswer: false },
-    { Answer:"wrong answer", rightAnswer: false }
+    { Answer:"Central Standard Time", rightAnswer: true },
+    { Answer:"Align-Content Center Standard Time", rightAnswer: false },
+    { Answer:"Mountain Standard Time", rightAnswer: false },
+    { Answer:"1/3 yard", rightAnswer: false }
 ];
 
 for (let i = answers4.length - 1; i > 0; i--) {
@@ -70,11 +70,11 @@ for (let i = answers4.length - 1; i > 0; i--) {
 //console.log(question4)
 
 
-const question5 = "Question 5";
+const question5 = "What is the square root 87?";
 let answers5 = [
-    { Answer:"right answer", rightAnswer: true },
-    { Answer:"wrong answer", rightAnswer: false },
-    { Answer:"wrong answer", rightAnswer: false },
+    { Answer:"9.3273", rightAnswer: true },
+    { Answer:"8.9783", rightAnswer: false },
+    { Answer:"8.2354", rightAnswer: false },
     { Answer:"wrong answer", rightAnswer: false }
 ];
 
