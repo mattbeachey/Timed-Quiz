@@ -228,12 +228,14 @@ function startGame() {
             console.log(endGame)
             const finalTime = timer
             console.log(finalTime)
+            let name = prompt("Please enter your intials")
+            let nameAndScore = {name: name, score: score}
             let currentData = localStorage.getItem("score")
             let array = JSON.parse(currentData)
             if (currentData == null) {
                 array = []
             } 
-            array.push(score)
+            array.push(nameAndScore)
             array = JSON.stringify(array)
             localStorage.setItem("score", array)
             console.log(array)
