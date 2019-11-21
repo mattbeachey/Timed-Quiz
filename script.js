@@ -23,7 +23,7 @@ function startGame() {
 
     //below creates the div where the answers will live
     const colEl = document.createElement("div");
-    colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
+    colEl.setAttribute("class", "col d-flex flex-wrap align-items-flex-start justify-content-center");
     answerBoxEl.append(colEl);
 
     //below creates the div where the question will live
@@ -69,7 +69,7 @@ function startGame() {
 
         const colEl = document.createElement("div");
         //first, a new container element is created to house the new answer buttons
-        colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
+        colEl.setAttribute("class", "col d-flex flex-wrap align-items-flex-start justify-content-center");
         answerBoxEl.append(colEl);
 
         const colElQ = document.createElement("div");
@@ -103,7 +103,7 @@ function startGame() {
     function thirdQuestion() {
 
         const colEl = document.createElement("div");
-        colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
+        colEl.setAttribute("class", "col d-flex flex-wrap align-items-flex-start justify-content-center");
         answerBoxEl.append(colEl);
 
         const colElQ = document.createElement("div");
@@ -137,7 +137,7 @@ function startGame() {
     function fourthQuestion() {
 
         const colEl = document.createElement("div");
-        colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
+        colEl.setAttribute("class", "col d-flex flex-wrap align-items-flex-start justify-content-center");
         answerBoxEl.append(colEl);
 
         const colElQ = document.createElement("div");
@@ -171,7 +171,7 @@ function startGame() {
     function fifthQuestion() {
 
         const colEl = document.createElement("div");
-        colEl.setAttribute("class", "col d-flex flex-wrap align-items-center justify-content-center");
+        colEl.setAttribute("class", "col d-flex flex-wrap align-items-flex-start justify-content-center");
         answerBoxEl.append(colEl);
 
         const colElQ = document.createElement("div");
@@ -224,18 +224,18 @@ function startGame() {
             if (rightAnswerBonus === true) {
                 score = score + timer //score is added by adding time remaining when answer correct
                 let scoreString = score.toString();
-                document.getElementById("currentScore").innerText = "Current Score:" + scoreString //current score is updated to the page live
+                document.getElementById("currentScore").innerText = "Current Score: " + scoreString //current score is updated to the page live
                 rightAnswerBonus = false
             }
 
             let timerString = timer.toString();
-            document.getElementById("timer").innerText = "Time Remaining:" + timerString
+            document.getElementById("timer").innerText = "Time Remaining: " + timerString
             //time remaining is updated live to the page
 
         } else { //everything below happens once the game has ended
             document.getElementById("playAgain").classList.remove("disappear")//"Play Again?" button appears
             let scoreString = score.toString();
-            document.getElementById("currentScore").innerText = "Final Score:" + scoreString
+            document.getElementById("currentScore").innerText = "Final Score: " + scoreString
             const finalTime = timer
             let name = prompt("Please enter your name")  //user is prompted to add their name
             let nameAndScore = { name: name, score: score } //a new array is created with two properties (name and score) for each item

@@ -70,6 +70,7 @@ h4 {
     border-radius: 16px;
     width: 70%;
     background-color: #348297;
+    border: solid 2px #348297;
     color: #ecf1eb;
     font-size: 20px;
     font-family: 'Tomorrow', sans-serif;
@@ -79,6 +80,7 @@ h4 {
 
 .rules:hover {
     background-color: #3e8ca2;
+    border: solid 2px #ecf1eb;
     color: #ffffff;
     transition: all 0.5s;
 }
@@ -117,7 +119,17 @@ button{
 }
 
 .answerbutton {
-    margin: 20px
+    margin: 20px;
+    background-color: #3e8ca2;
+    font-size: 20px;
+    width: 10%;
+}
+
+.answerbutton:hover {
+    background-color: #ecf1eb;
+    color: #3e8ca2;
+    /* width: 12%; */
+    transition: all 0.2s;
 }
 
 .answerbox {
@@ -154,4 +166,8 @@ button{
     display: flex;
     flex-direction: column;
     align-content: center;
+}
+
+.spacer2 {
+    height: 10px
 }
