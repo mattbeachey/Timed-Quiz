@@ -29,6 +29,38 @@ hr {
     justify-content: center; */
 }
 
+@media screen and (max-width: 772px) {
+    .mainbody {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 772px) {
+    .startbutton {
+        order: -1;
+    }
+}
+
+@media screen and (max-width: 772px) {
+    .introbox {
+        order: 1;
+    }
+}
+
+@media screen and (max-width: 772px) {
+    .smallscreen {
+        order: 2;
+    }
+}
+
+@media screen and (max-width: 772px) {
+    hr {
+        display: none;
+    }
+}
+
+
 .introbox {
     width: 100%;
     display: flex;
@@ -122,8 +154,8 @@ button{
     margin: 20px;
     background-color: #3e8ca2;
     font-size: 20px;
-    width: 10%;
 }
+
 
 .answerbutton:hover {
     background-color: #ecf1eb;
