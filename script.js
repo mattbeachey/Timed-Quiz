@@ -233,31 +233,48 @@ function startGame() {
             //time remaining is updated live to the page
 
         } else { //everything below happens once the game has ended
-            document.getElementById("playAgain").classList.remove("disappear")//"Play Again?" button appears
             let scoreString = score.toString();
             document.getElementById("currentScore").innerText = "Final Score: " + scoreString
             const finalTime = timer
-            let name = prompt("Please enter your name")  //user is prompted to add their name
-            let nameAndScore = { name: name, score: score } //a new array is created with two properties (name and score) for each item
-            let currentData = localStorage.getItem("score") //if there is existing local data saved, it is saved into the array "currentData"
-            let array = JSON.parse(currentData) //the text of the current data is converted into a JS object
-            if (currentData == null) { //if there is no local data saved, the array is made to be a blank array
-                array = []
-            }
-            array.push(nameAndScore) //the current name and score are added to the array that was populated by pulling from the local data
-            array.sort(function (a, b) { //the array is sorted by score
-                return b.score - a.score;
-            });
-            let stringarray = JSON.stringify(array) //the array is converted into a string
-            localStorage.setItem("score", stringarray) //the appended array is pushed back into local storage
-            array.forEach(function (data) { //each item of the array is send to the DOM to create a high scores list on the page
-                let nameAndScoreEl = document.createElement("p")
-                nameAndScoreEl.innerText = " " + data.name + " " + data.score
-                leaderboardEl.append(nameAndScoreEl)
+            const nameEl = document.createElement("input");
+            nameEl.setAttribute("id", "nameInput");
+            nameEl.setAttribute("class", "nameInput");
+            nameEl.setAttribute("placeholder", "Please enter your name")
+            questionBoxEl.append(nameEl);
+            const buttonEl = document.createElement("button");
+            buttonEl.setAttribute("id", "nameInputButton");
+            buttonEl.setAttribute("class", "nameInputButton");
+            buttonEl.innerText = "Submit"
+            questionBoxEl.append(buttonEl);
+            buttonEl.addEventListener("click", function(){
+                buttonEl.parentNode.removeChild(buttonEl);//removes button after clicking
+                nameEl.parentNode.removeChild(nameEl);//removes name field 
+                document.getElementById("playAgain").classList.remove("disappear")//"Play Again?" button appears
+                let name = nameEl.value
+                // let name = prompt("Please enter your name")  //user is prompted to add their name
+                let nameAndScore = { name: name, score: score } //a new array is created with two properties (name and score) for each item
+                let currentData = localStorage.getItem("score") //if there is existing local data saved, it is saved into the array "currentData"
+                let array = JSON.parse(currentData) //the text of the current data is converted into a JS object
+                if (currentData == null) { //if there is no local data saved, the array is made to be a blank array
+                    array = []
+                }
+                array.push(nameAndScore) //the current name and score are added to the array that was populated by pulling from the local data
+                array.sort(function (a, b) { //the array is sorted by score
+                    return b.score - a.score;
+                });
+                let stringarray = JSON.stringify(array) //the array is converted into a string
+                localStorage.setItem("score", stringarray) //the appended array is pushed back into local storage
+                array.forEach(function (data) { //each item of the array is send to the DOM to create a high scores list on the page
+                    let nameAndScoreEl = document.createElement("p")
+                    nameAndScoreEl.innerText = " " + data.name + " " + data.score
+                    leaderboardEl.append(nameAndScoreEl)
+                })
+                document.body.classList.add("bodygradient")
+                document.getElementById("timer").classList.add("disappear")
+                document.getElementById("topScores").classList.remove("disappear")
             })
-            document.body.classList.add("bodygradient")
-            document.getElementById("timer").classList.add("disappear")
-            document.getElementById("topScores").classList.remove("disappear")
+
+
 
         }
     }

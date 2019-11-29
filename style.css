@@ -169,6 +169,48 @@ button{
     justify-content: space-between;
 }
 
+.questionbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nameInput {
+    height: 50px;
+    border-radius: 8px;
+    font-size: 25px;
+    font-family: 'Tomorrow', sans-serif;
+    background-color: #ecf1eb;
+    border: 2px solid #ecf1eb;
+    color: #3e8ca2;
+    padding-left: 4px;
+    margin-right: 15px;
+
+}
+
+.nameInput:hover {
+    transform: perspective(100px) rotatey(10deg);
+    transition: all 10s;
+}
+
+.nameInputButton {
+    height: 50px;
+    border-radius: 8px;
+    font-size: 25px;
+    font-family: 'Tomorrow', sans-serif;
+    background-color: #3e8ca2;
+    color: #ecf1eb;
+    border: 2px solid #ecf1eb;
+    margin: 8px;
+}
+
+.nameInputButton:hover {
+    background-color: #ecf1eb;
+    color: #3e8ca2;
+    border: 2px solid #3e8ca2;
+    transform: perspective(100px) rotatey(-5deg);
+    transition: all 0.5s;
+}
 
 
 .startbutton {
