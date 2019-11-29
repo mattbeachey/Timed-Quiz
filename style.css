@@ -16,12 +16,12 @@ hr {
 
 .bodygradient {
     height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;    
+    margin: 0;   
     background: #3e8ca2;
     background: linear-gradient(180deg, rgba(52,130,151,1) 0%, rgba(115,168,180,1) 80%, rgba(236,241,235,1) 100%);
     transition: all 1s;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
 }
 
 .mainbody {
