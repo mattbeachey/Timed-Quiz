@@ -173,6 +173,7 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nameInput {
@@ -189,8 +190,8 @@ button{
 }
 
 .nameInput:hover {
-    transform: perspective(100px) rotatey(10deg);
-    transition: all 10s;
+    transform: perspective(100px) rotatey(3deg);
+    transition: all .4s;
 }
 
 .nameInputButton {
@@ -208,8 +209,8 @@ button{
     background-color: #ecf1eb;
     color: #3e8ca2;
     border: 2px solid #3e8ca2;
-    transform: perspective(100px) rotatey(-5deg);
-    transition: all 0.5s;
+    transform: perspective(100px) rotatey(-10deg);
+    transition: all 0.4s;
 }
 
 
