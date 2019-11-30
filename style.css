@@ -10,6 +10,11 @@ body {
     background: rgb(52,130,151);
 }
 
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
 hr {
     border: 2px solid #ecf1eb;
 }

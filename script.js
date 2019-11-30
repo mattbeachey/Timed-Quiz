@@ -10,7 +10,8 @@ let endGame = false;
 const leaderboardEl = document.getElementById("leaderboard");
 
 // function noScroll() {
-//     window.scrollTo(0, 0);
+//     // window.scrollTo(0, 0);
+//     window.scrollLeft = 0;
 // }
 
 // window.addEventListener('scroll', noScroll);
