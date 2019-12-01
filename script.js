@@ -197,7 +197,7 @@ function startGame() {
                 }
                 setTimeout(function () {
                     endGame = true;
-                }, 100) //had to add this delay to ensure that timer endgame operations performed in correct order
+                }, 1010) //had to add this delay to ensure that timer endgame operations performed in correct order
                 colElQ.parentNode.removeChild(colElQ)
                 colEl.parentNode.removeChild(colEl);
 
