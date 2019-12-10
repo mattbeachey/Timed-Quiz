@@ -8,10 +8,12 @@ The user is then prompted to enter their name, which will be added with their sc
 
 The app is dynamically designed and is suitable for phones and tablets as well as computers. 
 
-![](assets/SpeedQuiz1.png)
-![](assets/SpeedQuiz2.png)
-![](assets/SpeedQuiz3.png)
-![](assets/SpeedQuiz4.png)
+Coming soon: build your own speed quiz.
+
+![](https://github.com/mattbeachey/Timed-Quiz/blob/master/assets/SpeedQuiz1.PNG)
+![](https://github.com/mattbeachey/Timed-Quiz/blob/master/assets/SpeedQuiz2.PNG)
+![](https://github.com/mattbeachey/Timed-Quiz/blob/master/assets/SpeedQuiz3.PNG)
+![](https://github.com/mattbeachey/Timed-Quiz/blob/master/assets/SpeedQuiz4.PNG)
 
 ![](./assets/SpeedQuiz1.png)
 ![](./assets/SpeedQuiz2.png)
