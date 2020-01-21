@@ -202,6 +202,7 @@ button{
 .nameInput:focus {
     transform: perspective(100px) rotatey(3deg);
     transition: all .4s;
+    outline: none;
 }
 
 .nameInputButton {
